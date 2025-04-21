@@ -1,0 +1,24 @@
+{
+  "$schema": "https://nitro.margelo.com/nitro.schema.json",
+  "cxxNamespace": [
+    "nitrowebview"
+  ],
+  "ios": {
+    "iosModuleName": "NitroWebview"
+  },
+  "android": {
+    "androidNamespace": [
+      "nitrowebview"
+    ],
+    "androidCxxLibName": "NitroWebview"
+  },
+  "autolinking": {
+    "NitroWebview": {
+      "swift": "HybridNitroWebview",
+      "kotlin": "HybridNitroWebview"
+    }
+  },
+  "ignorePaths": [
+    "**/node_modules"
+  ]
+}
