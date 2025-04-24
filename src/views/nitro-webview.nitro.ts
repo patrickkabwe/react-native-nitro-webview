@@ -5,7 +5,8 @@ import type {
 } from 'react-native-nitro-modules'
 
 export interface NitroWebviewProps extends HybridViewProps {
-   isRed: boolean
+   sourceUrl: string
+   onScriptLoaded?: () => void
 }
 
 export interface NitroWebviewMethods extends HybridViewMethods {}

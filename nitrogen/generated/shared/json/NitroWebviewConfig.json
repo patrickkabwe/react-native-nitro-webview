@@ -1,0 +1,11 @@
+{
+  "uiViewClassName": "NitroWebview",
+  "supportsRawText": false,
+  "bubblingEventTypes": {},
+  "directEventTypes": {},
+  "validAttributes": {
+    "sourceUrl": true,
+    "onScriptLoaded": true,
+    "hybridRef": true
+  }
+}

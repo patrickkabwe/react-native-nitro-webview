@@ -1,7 +1,5 @@
 package com.nitrowebview
 
-import android.graphics.Color
-import android.view.View
 import androidx.annotation.Keep
 import com.facebook.proguard.annotations.DoNotStrip
 import com.facebook.react.uimanager.ThemedReactContext
@@ -9,19 +7,26 @@ import com.margelo.nitro.nitrowebview.HybridNitroWebviewSpec
 
 @Keep
 @DoNotStrip
-class HybridNitroWebview(val context: ThemedReactContext): HybridNitroWebviewSpec() {
+class HybridNitroWebview(val context: ThemedReactContext): HybridNitroWebviewSpec(), WebViewListener  {
     // View
-    override val view: View = View(context)
+    // TODO: fix edge-to-edge
+    override val view: NitroWebView = NitroWebView(context)
+    lateinit var webViewImpl: NitroWebViewImpl
 
     // Props
-    private var _isRed = false
-    override var isRed: Boolean
-        get() = _isRed
+    override var sourceUrl: String
+        get() = ""
         set(value) {
-            _isRed = value
-            view.setBackgroundColor(
-                if (value) Color.RED
-                else Color.BLACK
-            )
+            webViewImpl = NitroWebViewImpl(view)
+            webViewImpl.webView.listener = this
+            webViewImpl.load(value)
         }
+
+    override var onScriptLoaded: (() -> Unit)? = null
+
+    override fun onPageFinished(state: OnPageFinishState) {
+        if (state == OnPageFinishState.Success){
+            onScriptLoaded?.invoke()
+        }
+    }
 }
