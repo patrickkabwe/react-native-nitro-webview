@@ -21,9 +21,9 @@ npm install react-native-nitro-webview
 ### Basic Usage
 
 ```tsx
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
-import WebView from 'react-native-nitro-webview'
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import WebView from 'react-native-nitro-webview';
 
 function App() {
   return (
@@ -32,11 +32,11 @@ function App() {
         style={styles.webview}
         sourceUrl="https://example.com"
         onScriptLoaded={() => {
-          console.log('WebView loaded successfully')
+          console.log('WebView loaded successfully');
         }}
       />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-})
+});
 ```
 
 ### Edge-to-Edge Display
@@ -73,23 +73,22 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-})
+});
 ```
 
 ## Props
 
-| Prop             | Type                   | Required | Description                                      |
-| ---------------- | ---------------------- | -------- | ------------------------------------------------ |
-| `sourceUrl`      | `string`               | Yes      | The URL to load in the WebView                   |
-| `onScriptLoaded` | `() => void`           | No       | Callback fired when the WebView finishes loading |
-| `style`          | `StyleProp<ViewStyle>` | No       | Style for the WebView container                  |
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `sourceUrl` | `string` | Yes | The URL to load in the WebView |
+| `onScriptLoaded` | `() => void` | No | Callback fired when the WebView finishes loading |
+| `style` | `StyleProp<ViewStyle>` | No | Style for the WebView container |
 
 ## Platform-Specific Setup
 
 ### Android
 
 The Android implementation automatically handles:
-
 - System bar insets for edge-to-edge display
 - Transparent status and navigation bars
 - Proper content padding to avoid system UI overlap
@@ -97,7 +96,6 @@ The Android implementation automatically handles:
 ### iOS
 
 The iOS implementation:
-
 - Respects safe area insets
 - Extends content to screen edges
 - Handles device-specific layouts (notches, home indicators)
