@@ -7,7 +7,7 @@
 
 package com.margelo.nitro.nitrowebview.views
 
-import com.facebook.react.fabric.StateWrapperImpl
+import com.facebook.react.uimanager.StateWrapper
 import com.margelo.nitro.nitrowebview.*
 
 internal class HybridNitroWebviewStateUpdater {
@@ -18,6 +18,6 @@ internal class HybridNitroWebviewStateUpdater {
      */
     @Suppress("KotlinJniMissingFunction")
     @JvmStatic
-    external fun updateViewProps(view: HybridNitroWebviewSpec, state: StateWrapperImpl)
+    external fun updateViewProps(view: HybridNitroWebviewSpec, state: StateWrapper)
   }
 }
