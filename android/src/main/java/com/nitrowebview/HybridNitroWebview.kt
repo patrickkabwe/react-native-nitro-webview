@@ -17,8 +17,10 @@ class HybridNitroWebview(val context: ThemedReactContext): HybridNitroWebviewSpe
     override var sourceUrl: String
         get() = ""
         set(value) {
-            webViewImpl = NitroWebViewImpl(view)
-            webViewImpl.webView.listener = this
+            if (!::webViewImpl.isInitialized) {
+                webViewImpl = NitroWebViewImpl(view)
+                webViewImpl.webView.listener = this
+            }
             webViewImpl.load(value)
         }
 

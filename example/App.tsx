@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import React, { useState } from 'react';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import WebView from 'react-native-nitro-webview';
 
 function App(): React.JSX.Element {
@@ -28,8 +28,7 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // Remove justifyContent and alignItems to allow edge-to-edge
   },
   view: {
     flex: 1,

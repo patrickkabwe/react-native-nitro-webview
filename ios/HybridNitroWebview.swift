@@ -23,9 +23,11 @@ class HybridNitroWebview : HybridNitroWebviewSpec {
     var sourceUrl: String = "" {
         didSet {
             if !sourceUrl.isEmpty {
-                nitroWebViewImpl = NitroWebViewImpl(webview: view as? NitroWebView)
+                if nitroWebViewImpl == nil, let webview = view as? NitroWebView {
+                    nitroWebViewImpl = NitroWebViewImpl(webview: webview)
+                    nitroWebViewImpl?.webview?.delegate = self
+                }
                 nitroWebViewImpl?.load(with: sourceUrl)
-                nitroWebViewImpl?.webview?.delegate = self
             }
         }
     }
